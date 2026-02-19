@@ -39,17 +39,17 @@ public class GraphRagService implements KnowledgeService {
         List<AnalysisResponse.SimilarRequirement> results = new ArrayList<>();
 
         results.add(AnalysisResponse.SimilarRequirement.builder()
-                .requirementId("REQ-001")
-                .text("O sistema deve responder em até 200ms sob carga normal")
-                .similarityScore(0.94)
-                .source("backlog")
+                .requirementId("CHK-001")
+                .text("As plantas absorvem luz solar e CO2 para produzir oxigênio")
+                .similarityScore(0.97)
+                .source("natureza")
                 .build());
 
         results.add(AnalysisResponse.SimilarRequirement.builder()
-                .requirementId("REQ-002")
-                .text("Os endpoints da API devem retornar resposta em menos de 500ms no percentil 99")
-                .similarityScore(0.81)
-                .source("backlog")
+                .requirementId("CHK-002")
+                .text("As abelhas transportam pólen entre flores, permitindo a reprodução das plantas.")
+                .similarityScore(0.95)
+                .source("natureza")
                 .build());
 
         return results;
@@ -59,11 +59,18 @@ public class GraphRagService implements KnowledgeService {
         List<AnalysisResponse.RelatedConcept> results = new ArrayList<>();
 
         Map<String, Object> props = new HashMap<>();
-        props.put("categoria", "Qualidade");
+        props.put("categoria", "Biologia");
 
         results.add(AnalysisResponse.RelatedConcept.builder()
                 .conceptId("C-001")
-                .conceptName("Desempenho")
+                .conceptName("Fotossíntese")
+                .relationshipType("RELACIONADO_A")
+                .properties(props)
+                .build());
+
+        results.add(AnalysisResponse.RelatedConcept.builder()
+                .conceptId("C-002")
+                .conceptName("Polinização")
                 .relationshipType("RELACIONADO_A")
                 .properties(props)
                 .build());
