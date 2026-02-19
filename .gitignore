@@ -1,0 +1,72 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+.classpath
+.project
+.settings/
+bin/
+.metadata/
+
+# Logs
+logs/
+*.log
+log/
+*.log.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+spring-boot-devtools.properties
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Docker volumes
+.devcontainer/volumes/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Test coverage
+coverage/
+*.exec
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~

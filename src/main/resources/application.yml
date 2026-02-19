@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: graphrag-requirements-analyzer
+
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration
+      - org.springframework.ai.autoconfigure.vectorstore.qdrant.QdrantVectorStoreAutoConfiguration
+      - org.springframework.boot.autoconfigure.neo4j.Neo4jAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.neo4j.Neo4jDataAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.neo4j.Neo4jReactiveDataAutoConfiguration
+
+  ai:
+    qdrant:
+      host: ${QDRANT_HOST:qdrant}
+      port: 6333
+      collection-name: requirements_embeddings
+      api-key: ${QDRANT_API_KEY:}
+      use-tls: false
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      embedding:
+        model: text-embedding-3-small
+      chat:
+        model: gpt-4-turbo-preview
+
+  neo4j:
+    uri: bolt://${NEO4J_HOST:neo4j}:7687
+    authentication:
+      username: neo4j
+      password: ${NEO4J_PASSWORD:graphraguc3m}
+    database: neo4j
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    ai4se.research.graphrag: DEBUG
+    org.springframework.web: DEBUG
+
+graphrag:
+  vector-search:
+    top-k: 5
+    similarity-threshold: 0.7
+  graph-query:
+    max-depth: 3
+    max-results: 10
+
